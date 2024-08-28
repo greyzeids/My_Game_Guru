@@ -1,3 +1,95 @@
-/* 
-    General Styles used on every website (Don't Repeat Yourself)
-*/
+@import url("global.css");
+
+body {
+    background-color: #06031a;
+    background-size: cover;
+    color: var(--text-color);
+}
+
+.navbar {
+    height: 100px;
+    background: linear-gradient(
+        to right,
+        var(--bg-primary),
+        var(--bg-secondary)
+    );
+    padding: 0 10px;
+    font-family: var(--font-bebas);
+    font-size: 26px;
+}
+
+.navbar-text {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .d-flex > * {
+    margin-left: 15px;
+}
+
+.dropdown {
+    background: transparent;
+    margin-left: 15px;
+}
+
+.btn-secondary {
+    --bs-btn-bg: transparent;
+    border: none;
+    font-size: 26px;
+    --bs-btn-active-bg: transparent;
+}
+
+.btn:hover {
+    background-color: transparent;
+}
+
+.btn {
+    padding: 0;
+}
+
+.login-button {
+    color: var(--clr);
+}
+
+.suggestions-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    width: 100%;
+    height: 65vh;
+}
+
+@keyframes rotateVertical {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.rotate-vertical {
+    animation: rotateVertical 10s linear infinite;
+    transform-origin: center;
+    margin-bottom: 0.1px !important;
+}
