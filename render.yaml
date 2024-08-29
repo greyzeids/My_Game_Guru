@@ -4,7 +4,7 @@
 services:
     - type: web # valid values: https://render.com/docs/yaml-spec#type
       region: ohio
-      name: sample-service-name
+      name: my-game-guru
       env: python # valid values: https://render.com/docs/yaml-spec#environment
       buildCommand: "./render_build.sh"
       startCommand: "gunicorn wsgi --chdir ./src/"
@@ -24,6 +24,17 @@ services:
                 name: postgresql-trapezoidal-42170
                 property: connectionString
           - fromGroup: my-game-guru-env
+          - key: FRONTEND_URL
+            fromService:
+              name: my-game-guru
+              type: web
+              property: host
+          - key: BACKEND_URL
+            fromService:
+              name: my-game-guru
+              type: web
+              property: host
+
 
 databases: # Render PostgreSQL database
     - name: postgresql-trapezoidal-42170
