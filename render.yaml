@@ -34,6 +34,10 @@ services:
               name: my-game-guru
               type: web
               property: host
+          - key: FLASK_APP_KEY 
+            value: any key works
+          - key: DEBUG
+            value: FALSE
 
 
 databases: # Render PostgreSQL database
