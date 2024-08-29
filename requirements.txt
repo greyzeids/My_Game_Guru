@@ -27,3 +27,5 @@ wtforms==2.3.3
 Cython
 requests
 openai
+flask_bcrypt
+flask_jwt_extended
