@@ -15,11 +15,11 @@ export function GameSuggestor() {
         store.appidsGame = [];
         const typed = new Typed(typedElement.current, {
             strings: [
-                "Games",
-                "<span class='highlightedText'>Suggestions</span>",
-                "<span class='highlightedText2'>Recommendations</span>",
+                "Videojuegos",
+                "<span class='highlightedText'>Sugerencias</span>",
+                "<span class='highlightedText2'>Recomendaciones</span>",
                 "<span class='highlightedText'>Ideas</span>",
-                "Find",
+                "Búsquedas",
             ],
             typeSpeed: 100,
             backSpeed: 100,
@@ -79,10 +79,8 @@ export function GameSuggestor() {
                                     value={inputValue}
                                     onKeyDown={async (e) => {
                                         if (e.key === "Enter") {
-                                            let response =
-                                                await actions.getSuggestions(
-                                                    inputValue
-                                                );
+                                            if(store.token == null) return alert('Para utilizar esta funcion debes iniciar sesion')
+                                            let response = await actions.getSuggestions(inputValue);
                                             if (response) {
                                                 setInputValue("");
                                                 navigate("/suggestions");
