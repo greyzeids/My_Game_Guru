@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
 const footerLinks = [
-    { text: "sobre my game guru", to: "/" },
+    { text: "sobre my game guru", to: "/aboutus" },
     { text: "contacto", to: "/Contact" },
-    { text: "términos de servicio", to: "/terms" },
-    { text: "política de privacidad", to: "/privacy" },
+    { text: "términos de servicio", to: "/termsAndServices" },
+    { text: "política de privacidad", to: "/privacyPolicy" },
 ];
 
 const socialIcons = [
@@ -38,27 +38,29 @@ const socialIcons = [
 
 export function Footer() {
     return (
-        <footer className="footer">
-            <nav className="footerLinks">
-                {footerLinks.map((link, index) => (
-                    <Link key={index} to={link.to} className="footerLink">
-                        {link.text}
-                        <br />
-                    </Link>
-                ))}
-            </nav>
-            <div className="socialIcons">
-                {socialIcons.map((icon, index) => (
-                    <Link key={index} to={icon.to}>
-                        <img
-                            loading="lazy"
-                            src={icon.src}
-                            alt={icon.alt}
-                            className={icon.className}
-                        />
-                    </Link>
-                ))}
-            </div>
-        </footer>
+        <>
+            <div className="divider"></div>
+            <footer className="footer">
+                <nav className="footerLinks">
+                    {footerLinks.map((link, index) => (
+                        <Link key={index} to={link.to} className="footerLink">
+                            {link.text}
+                        </Link>
+                    ))}
+                </nav>
+                <div className="socialIcons">
+                    {socialIcons.map((icon, index) => (
+                        <Link key={index} to={icon.to}>
+                            <img
+                                loading="lazy"
+                                src={icon.src}
+                                alt={icon.alt}
+                                className={icon.className}
+                            />
+                        </Link>
+                    ))}
+                </div>
+            </footer>
+        </>
     );
 }
