@@ -80,4 +80,4 @@ _Disfruta descubriendo tu próximo videojuego favorito con My Game Guru._
 
 Puedes visualizar el proyecto en este link:
 
-https://my-game-guru.onrender.com/
+https://my-game-guru.onrender.com/  
