@@ -1,4 +1,4 @@
-const apiUrl = process.env.BACKEND_URL + "/api";
+const apiUrl = "https://my-game-guru.onrender.com/api";
 const STEAM_API_URL = process.env.STEAM_API_URL;
 const getState = ({ getStore, getActions, setStore }) => {
     return {
@@ -22,8 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
                 try {
                     const resp = await fetch(
-                        process.env.BACKEND_URL +
-                            `/api/favouritegames/${appId}`,
+                        apiUrl + `/favouritegames/${appId}`,
                         {
                             method: "POST",
                             headers: {
@@ -60,8 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 // Eliminar el juego de la lista de favoritos
                 try {
                     const resp = await fetch(
-                        process.env.BACKEND_URL +
-                            `/api/favouritegames/${appId}`,
+                        apiUrl + `/favouritegames/${appId}`,
                         {
                             method: "DELETE",
                             headers: {
@@ -128,13 +126,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                     });
                     if (!response.ok) {
                         if (response.status === 404) {
-                            console.error('Recurso no encontrado');
+                            console.error("Recurso no encontrado");
                             return false;
                         } else if (response.status >= 500) {
-                            console.error('Error en el servidor');
+                            console.error("Error en el servidor");
                             return false;
                         } else {
-                            console.error('Error desconocido');
+                            console.error("Error desconocido");
                             return false;
                         }
                     }
@@ -154,9 +152,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             getMessage: async () => {
                 try {
                     // Realiza una solicitud al backend para obtener un mensaje
-                    const resp = await fetch(
-                        process.env.BACKEND_URL + "/api/hello"
-                    );
+                    const resp = await fetch(apiUrl + "/hello");
                     const data = await resp.json();
                     setStore({ message: data.message });
                     return data;
@@ -275,17 +271,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
                 if (token) {
                     try {
-                        const response = await fetch(
-                            process.env.BACKEND_URL + "/api/logout",
-                            {
-                                method: "POST",
-                                headers: {
-                                    "Access-Control-Allow-Origin": "*",
-                                    "Content-Type": "application/json",
-                                    Authorization: `Bearer ${token}`,
-                                },
-                            }
-                        );
+                        const response = await fetch(apiUrl + "/logout", {
+                            method: "POST",
+                            headers: {
+                                "Access-Control-Allow-Origin": "*",
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`,
+                            },
+                        });
 
                         if (response.ok) {
                             // Limpiar token del store y del localStorage
