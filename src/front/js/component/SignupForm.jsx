@@ -28,7 +28,7 @@ export const SignupForm = ({ onSigninClick }) => {
 
         try {
             const response = await fetch(
-                process.env.BACKEND_URL + "/api/signup",
+                "https://my-game-guru.onrender.com/api/signup",
                 {
                     method: "POST",
                     headers: {
